@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { ArrowRight, CheckCircle, Star, Clock, Shield, Trophy, Users } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import { Card, CardContent } from '../components/ui/card'
+import { GoogleReviews } from '../components/GoogleReviews'
 
 export default function Home() {
     const fadeInUp = {
@@ -79,8 +80,8 @@ export default function Home() {
                                 className="flex flex-col sm:flex-row gap-4 pt-4"
                             >
                                 <Button size="lg" className="whitespace-nowrap text-lg px-8 py-6 bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/25" asChild>
-                                    <Link to="/booking">
-                                        Réserver ma leçon <ArrowRight className="ml-2 h-5 w-5" />
+                                    <Link to="/booking" className="flex items-center justify-center gap-2">
+                                        Réserver ma leçon <ArrowRight className="h-5 w-5" />
                                     </Link>
                                 </Button>
                                 <Button size="lg" variant="outline" className="whitespace-nowrap text-lg px-8 py-6 border-white text-white hover:bg-white/10 backdrop-blur-sm" asChild>
@@ -232,6 +233,9 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
+
+                {/* Google Reviews Section */}
+                <GoogleReviews />
 
                 {/* CTA Section */}
                 <section className="py-24 bg-accent relative overflow-hidden">
