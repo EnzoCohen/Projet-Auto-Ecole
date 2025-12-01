@@ -180,7 +180,9 @@ export default function Home() {
                                     <div className="flex items-center gap-2 mb-2">
                                         <div className="flex -space-x-2">
                                             {[1, 2, 3].map((i) => (
-                                                <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-background" />
+                                                <div key={i} className="w-8 h-8 rounded-full bg-accent/20 border-2 border-background flex items-center justify-center">
+                                                    <Users className="h-4 w-4 text-accent" />
+                                                </div>
                                             ))}
                                         </div>
                                         <span className="font-bold text-sm">+500 élèves</span>

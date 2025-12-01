@@ -23,7 +23,7 @@ export default function Contact() {
 
             <div className="flex flex-col min-h-screen">
                 {/* Hero Section */}
-                <section className="relative py-20 overflow-hidden bg-muted/30">
+                <section className="relative py-12 overflow-hidden bg-muted/30">
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50 z-10" />
                         <img
@@ -52,7 +52,7 @@ export default function Contact() {
                     </div>
                 </section>
 
-                <div className="container mx-auto px-4 py-12">
+                <div className="container mx-auto px-4 py-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
                         {/* Contact Info */}

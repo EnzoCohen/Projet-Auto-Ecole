@@ -106,10 +106,9 @@ export default function FAQ() {
                         {faqs.map((faq, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.1 }}
-                                transition={{ delay: index * 0.05 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.03, duration: 0.3 }}
                             >
                                 <AccordionItem value={`item-${index}`} className="border rounded-lg px-4 bg-card/50 backdrop-blur shadow-sm hover:shadow-md transition-all">
                                     <AccordionTrigger className="text-left font-medium hover:text-accent hover:no-underline py-4">

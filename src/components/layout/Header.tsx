@@ -40,7 +40,7 @@ export function Header() {
                     <div className="bg-accent text-white p-2 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-accent/25">
                         <Car className="h-6 w-6" />
                     </div>
-                    <span className="text-2xl font-bold tracking-tight hidden sm:block font-harlekin">
+                    <span className="text-2xl font-bold tracking-tight hidden sm:block font-harlekin text-white">
                         Auto Ecole
                     </span>
                 </Link>
@@ -53,7 +53,7 @@ export function Header() {
                             to={link.href}
                             className={cn(
                                 "relative px-4 py-2 text-sm font-medium transition-colors hover:text-accent rounded-full",
-                                location.pathname === link.href ? "text-foreground font-semibold" : "text-muted-foreground"
+                                location.pathname === link.href ? "text-white font-semibold" : "text-white/80"
                             )}
                         >
                             {link.label}
@@ -74,12 +74,12 @@ export function Header() {
                     </div>
                 </nav>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile Menu Button */}
                 <div className="flex items-center gap-2 md:hidden">
                     <ModeToggle />
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="p-2 rounded-full hover:bg-accent/10 transition-colors"
+                        className="p-2 rounded-full hover:bg-accent/10 transition-colors text-white"
                     >
                         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </button>

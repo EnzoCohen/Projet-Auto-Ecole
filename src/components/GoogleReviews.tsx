@@ -157,7 +157,7 @@ export function GoogleReviews() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {reviews.slice(0, 3).map((review, index) => (
+                    {reviews.filter(review => review.rating >= 4).slice(0, 3).map((review, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
