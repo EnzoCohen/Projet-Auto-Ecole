@@ -16,8 +16,21 @@ export function Header() {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10)
         }
+
+        // Force blur on all elements when window loses focus to prevent artifacts
+        const handleWindowBlur = () => {
+            if (document.activeElement instanceof HTMLElement) {
+                document.activeElement.blur()
+            }
+        }
+
         window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
+        window.addEventListener('blur', handleWindowBlur)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('blur', handleWindowBlur)
+        }
     }, [])
 
     const links = [
