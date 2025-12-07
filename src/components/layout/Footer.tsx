@@ -1,19 +1,27 @@
-﻿import { Link } from 'react-router-dom'
+﻿import { Link, useLocation } from 'react-router-dom'
 import { MapPin, Phone, Mail, Instagram, Twitter, ArrowRight } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Logo } from '../Logo'
 
 export function Footer() {
+    const location = useLocation()
+
     return (
         <footer className="bg-slate-950 text-slate-200 pt-20 pb-10 border-t border-slate-800">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand */}
                     <div className="space-y-6">
-                        <Link to="/" className="flex items-center group" style={{ background: 'transparent', padding: 0, width: 'fit-content' }}>
-                            <Logo />
-                        </Link>
+                        {location.pathname === '/' ? (
+                            <div className="flex items-center group select-none cursor-default pointer-events-none">
+                                <Logo />
+                            </div>
+                        ) : (
+                            <Link to="/" className="flex items-center group select-none">
+                                <Logo />
+                            </Link>
+                        )}
                         <p className="text-slate-400 leading-relaxed">
                             L'auto-école nouvelle génération qui s'adapte à votre rythme. Formation de qualité, moniteurs certifiés et réussite garantie.
                         </p>
@@ -98,6 +106,20 @@ function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
 }
 
 function FooterLink({ to, label }: { to: string, label: string }) {
+    const location = useLocation()
+    const isActive = location.pathname === to
+
+    if (isActive) {
+        return (
+            <li>
+                <span className="text-accent font-semibold flex items-center group cursor-default pointer-events-none select-none">
+                    <span className="w-2 h-0.5 bg-accent mr-2" />
+                    {label}
+                </span>
+            </li>
+        )
+    }
+
     return (
         <li>
             <Link

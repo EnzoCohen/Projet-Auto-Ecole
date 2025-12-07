@@ -38,7 +38,7 @@ export function Header() {
             <div className="container mx-auto px-4 flex items-center justify-between">
                 {/* Logo */}
                 {location.pathname === '/' ? (
-                    <div className="flex items-center group select-none cursor-default">
+                    <div className="flex items-center group select-none cursor-default pointer-events-none">
                         <Logo />
                     </div>
                 ) : (
@@ -49,25 +49,36 @@ export function Header() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-6">
-                    {links.map((link) => (
-                        <Link
-                            key={link.href}
-                            to={link.href}
-                            className={cn(
-                                "relative px-4 py-2 text-sm font-medium transition-colors hover:text-accent rounded-full",
-                                location.pathname === link.href ? "text-white font-semibold" : "text-white/80"
-                            )}
-                        >
-                            {link.label}
-                            {location.pathname === link.href && (
-                                <motion.div
-                                    layoutId="navbar-indicator"
-                                    className="absolute inset-0 bg-accent/10 rounded-full -z-10"
-                                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                />
-                            )}
-                        </Link>
-                    ))}
+                    {links.map((link) => {
+                        const isActive = location.pathname === link.href;
+                        if (isActive) {
+                            return (
+                                <span
+                                    key={link.href}
+                                    className="relative px-4 py-2 text-sm font-medium text-white font-semibold rounded-full cursor-default pointer-events-none select-none"
+                                >
+                                    {link.label}
+                                    <motion.div
+                                        layoutId="navbar-indicator"
+                                        className="absolute inset-0 bg-accent/10 rounded-full -z-10"
+                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                    />
+                                </span>
+                            );
+                        }
+                        return (
+                            <Link
+                                key={link.href}
+                                to={link.href}
+                                className={cn(
+                                    "relative px-4 py-2 text-sm font-medium transition-colors hover:text-accent rounded-full",
+                                    "text-white/80"
+                                )}
+                            >
+                                {link.label}
+                            </Link>
+                        );
+                    })}
                     <div className="pl-4 flex items-center gap-4">
                         <ModeToggle />
                         <Button asChild className="rounded-full px-6 shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all hover:scale-105">
