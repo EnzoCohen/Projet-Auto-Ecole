@@ -23,14 +23,9 @@ export default function Contact() {
 
             <div className="flex flex-col min-h-screen">
                 {/* Hero Section */}
-                <section className="relative py-12 overflow-hidden bg-muted/30">
+                <section className="relative pt-32 pb-12 overflow-hidden bg-gradient-to-br from-muted/50 via-background to-accent/5">
                     <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50 z-10" />
-                        <img
-                            src="/hero-driving.png"
-                            alt="Background"
-                            className="w-full h-full object-cover opacity-20"
-                        />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(253,108,48,0.1),transparent_70%)]" />
                     </div>
 
                     <div className="container mx-auto px-4 relative z-20 text-center">

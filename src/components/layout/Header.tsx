@@ -1,10 +1,11 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '../../lib/utils'
 import { ModeToggle } from '../mode-toggle'
 import { Button } from '../ui/button'
-import { Menu, X, Car } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import { Logo } from '../Logo'
 
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -31,19 +32,20 @@ export function Header() {
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled ? "bg-background/80 backdrop-blur-md border-b shadow-sm py-2" : "bg-transparent py-4"
+                isScrolled ? "bg-background/90 backdrop-blur-md border-b shadow-sm py-2" : "bg-background/70 backdrop-blur-sm py-4"
             )}
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
                 {/* Logo */}
-                <Link to="/" className="flex items-center gap-2 group">
-                    <div className="bg-accent text-white p-2 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-accent/25">
-                        <Car className="h-6 w-6" />
+                {location.pathname === '/' ? (
+                    <div className="flex items-center group select-none cursor-default">
+                        <Logo />
                     </div>
-                    <span className="text-2xl font-bold tracking-tight hidden sm:block font-harlekin text-white">
-                        Auto Ecole
-                    </span>
-                </Link>
+                ) : (
+                    <Link to="/" className="flex items-center group select-none">
+                        <Logo />
+                    </Link>
+                )}
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-6">

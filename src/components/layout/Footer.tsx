@@ -1,7 +1,8 @@
 ﻿import { Link } from 'react-router-dom'
-import { Car, MapPin, Phone, Mail, Instagram, Twitter, ArrowRight } from 'lucide-react'
+import { MapPin, Phone, Mail, Instagram, Twitter, ArrowRight } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
+import { Logo } from '../Logo'
 
 export function Footer() {
     return (
@@ -10,13 +11,8 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand */}
                     <div className="space-y-6">
-                        <Link to="/" className="flex items-center gap-2 group">
-                            <div className="bg-accent text-white p-2 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-accent/25">
-                                <Car className="h-6 w-6" />
-                            </div>
-                            <span className="text-2xl font-bold tracking-tight text-white font-harlekin">
-                                Drive Hours
-                            </span>
+                        <Link to="/" className="flex items-center group" style={{ background: 'transparent', padding: 0, width: 'fit-content' }}>
+                            <Logo />
                         </Link>
                         <p className="text-slate-400 leading-relaxed">
                             L'auto-école nouvelle génération qui s'adapte à votre rythme. Formation de qualité, moniteurs certifiés et réussite garantie.
@@ -81,9 +77,8 @@ export function Footer() {
                 <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                     <p>© {new Date().getFullYear()} Drive Hours. Tous droits réservés.</p>
                     <div className="flex space-x-6">
-                        <a href="#" className="hover:text-accent transition-colors">Mentions Légales</a>
-                        <a href="#" className="hover:text-accent transition-colors">CGV</a>
-                        <a href="#" className="hover:text-accent transition-colors">Politique de Confidentialité</a>
+                        <Link to="/mentions-legales" className="hover:text-accent transition-colors">Mentions Légales</Link>
+                        <Link to="/politique-confidentialite" className="hover:text-accent transition-colors">Politique de Confidentialité</Link>
                     </div>
                 </div>
             </div>

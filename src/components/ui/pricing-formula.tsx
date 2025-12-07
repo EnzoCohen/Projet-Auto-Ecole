@@ -10,7 +10,7 @@ export interface PricingOption {
 }
 
 export interface PricingFormulaProps {
-    title: string
+    title?: string
     emoji?: string
     description?: string
     options: PricingOption[]
@@ -39,10 +39,12 @@ export function PricingFormula({
 
     return (
         <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-2">
-                {emoji && <span className="mr-2">{emoji}</span>}
-                {title}
-            </h2>
+            {title && (
+                <h2 className="text-3xl font-bold mb-2">
+                    {emoji && <span className="mr-2">{emoji}</span>}
+                    {title}
+                </h2>
+            )}
             {description && (
                 <p className="text-muted-foreground mb-8">{description}</p>
             )}

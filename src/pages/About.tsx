@@ -14,34 +14,31 @@ export default function About() {
     return (
         <>
             <Helmet>
-                <title>Qui sommes-nous - Drive Hours</title>
+                <title>Drive Hours - Qui sommes-nous</title>
                 <meta name="description" content="Découvrez l'équipe de Drive Hours. Nos moniteurs expérimentés vous accompagnent vers la réussite." />
             </Helmet>
 
+
             <div className="flex flex-col min-h-screen">
                 {/* Hero Section */}
-                <section className="relative py-20 lg:py-32 overflow-hidden bg-muted/30">
+                <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-gradient-to-br from-background via-muted/50 to-accent/10">
                     <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50 z-10" />
-                        <img
-                            src="/hero-driving.png"
-                            alt="Background"
-                            className="w-full h-full object-cover opacity-20"
-                        />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(253,108,48,0.1),transparent_50%)]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(253,108,48,0.05),transparent_50%)]" />
                     </div>
 
                     <div className="container mx-auto px-4 relative z-20">
                         <div className="max-w-3xl">
                             <motion.span
                                 initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 className="text-accent font-semibold tracking-wider uppercase mb-4 block"
                             >
                                 Notre Histoire
                             </motion.span>
                             <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
                                 className="text-4xl md:text-6xl font-bold tracking-tight mb-6"
                             >
@@ -49,7 +46,7 @@ export default function About() {
                             </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
                                 className="text-xl text-muted-foreground leading-relaxed"
                             >

@@ -1,8 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
+import { useGoogleReviews } from '../hooks/useGoogleReviews';
 
 // --- Types ---
 interface Review {
@@ -13,11 +14,7 @@ interface Review {
     profile_photo_url: string;
 }
 
-declare global {
-    interface Window {
-        google: any;
-    }
-}
+
 
 // --- Mock Data (Fallback) ---
 const MOCK_REVIEWS: Review[] = [
@@ -46,9 +43,7 @@ const MOCK_REVIEWS: Review[] = [
 
 export function GoogleReviews() {
     const [reviews, setReviews] = useState<Review[]>(MOCK_REVIEWS);
-    const [rating, setRating] = useState(4.9);
-    const [totalReviews, setTotalReviews] = useState(127);
-    const serviceRef = useRef<HTMLDivElement>(null);
+    const { rating, totalReviews, serviceRef } = useGoogleReviews();
 
     const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
     const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID;
@@ -103,26 +98,19 @@ export function GoogleReviews() {
                         placeId: placeId,
                         fields: ['reviews', 'rating', 'user_ratings_total']
                     },
-                    (place: any, status: any) => {
-                        if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
-                            console.log("✅ Google Reviews loaded successfully:", place);
-                            if (place.reviews && place.reviews.length > 0) {
-                                setReviews(place.reviews);
-                                setRating(place.rating || 4.9);
-                                setTotalReviews(place.user_ratings_total || 127);
-                            }
-                        } else {
-                            console.warn("⚠️ Google Places API returned status:", status);
+                    (place, status) => {
+                        if (status === window.google.maps.places.PlacesServiceStatus.OK && place && place.reviews) {
+                            setReviews(place.reviews);
                         }
                     }
                 );
             } catch (err) {
-                console.error("❌ Error fetching reviews:", err);
+                console.error("Error fetching reviews:", err);
             }
         };
 
         loadGoogleScript();
-    }, [apiKey, placeId]);
+    }, [apiKey, placeId, serviceRef]);
 
     return (
         <section className="py-24 bg-muted/30">

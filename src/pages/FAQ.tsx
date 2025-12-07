@@ -64,14 +64,10 @@ export default function FAQ() {
 
             <div className="flex flex-col min-h-screen">
                 {/* Hero Section */}
-                <section className="relative py-20 overflow-hidden bg-muted/30">
+                <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-background via-accent/5 to-muted/40">
                     <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50 z-10" />
-                        <img
-                            src="/hero-driving.png"
-                            alt="Background"
-                            className="w-full h-full object-cover opacity-20"
-                        />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,rgba(253,108,48,0.12),transparent_60%)]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(253,108,48,0.06),transparent_50%)]" />
                     </div>
 
                     <div className="container mx-auto px-4 relative z-20 text-center">

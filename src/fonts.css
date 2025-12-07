@@ -2,7 +2,8 @@
     font-family: 'Harlekin';
     src: url('/fonts/Harlekin.woff2') format('woff2'),
         url('/fonts/Harlekin.woff') format('woff'),
-        url('/fonts/Harlekin.ttf') format('truetype');
+        url('/fonts/Harlekin.ttf') format('truetype'),
+        url('/fonts/Harlekin.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

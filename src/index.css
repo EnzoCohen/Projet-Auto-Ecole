@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yellowtail&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -92,4 +92,28 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-family-sans);
+}
+
+.font-harlekin {
+  font-family: 'Harlekin', sans-serif;
+}
+
+.font-yellowtail {
+  font-family: 'Yellowtail', cursive;
+}
+
+/* Global Link Styles to prevent white rectangles/highlights */
+a,
+a:focus,
+a:active,
+a:focus-visible,
+a.active,
+a[aria-current="page"] {
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
 }

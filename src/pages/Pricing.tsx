@@ -23,14 +23,10 @@ export default function Pricing() {
 
             <div className="flex flex-col min-h-screen">
                 {/* Hero Section */}
-                <section className="relative py-20 lg:py-32 overflow-hidden bg-muted/30">
+                <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-gradient-to-br from-accent/5 via-background to-muted/30">
                     <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50 z-10" />
-                        <img
-                            src="/hero-driving.png"
-                            alt="Background"
-                            className="w-full h-full object-cover opacity-20"
-                        />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(253,108,48,0.15),transparent_60%)]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_70%,rgba(253,108,48,0.08),transparent_50%)]" />
                     </div>
 
                     <div className="container mx-auto px-4 relative z-20 text-center">

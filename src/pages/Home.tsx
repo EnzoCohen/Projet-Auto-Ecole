@@ -5,8 +5,10 @@ import { ArrowRight, CheckCircle, Star, Clock, Shield, Trophy, Users } from 'luc
 import { Button } from '../components/ui/button'
 import { Card, CardContent } from '../components/ui/card'
 import { GoogleReviews } from '../components/GoogleReviews'
+import { useGoogleReviews } from '../hooks/useGoogleReviews'
 
 export default function Home() {
+    const { rating, totalReviews } = useGoogleReviews()
     const fadeInUp = {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
@@ -112,8 +114,8 @@ export default function Home() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                             <StatCounter number="98%" label="Taux de réussite" icon={<Trophy className="h-6 w-6 text-accent" />} />
                             <StatCounter number="1500+" label="Élèves formés" icon={<Users className="h-6 w-6 text-accent" />} />
-                            <StatCounter number="15" label="Moniteurs experts" icon={<Star className="h-6 w-6 text-accent" />} />
-                            <StatCounter number="4.9/5" label="Avis Google" icon={<CheckCircle className="h-6 w-6 text-accent" />} />
+                            <StatCounter number="3" label="Moniteurs experts" icon={<Star className="h-6 w-6 text-accent" />} />
+                            <StatCounter number={`${rating}/5`} label={`${totalReviews} avis Google`} icon={<CheckCircle className="h-6 w-6 text-accent" />} />
                         </div>
                     </div>
                 </section>

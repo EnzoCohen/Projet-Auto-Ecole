@@ -2,6 +2,7 @@
 import { HelmetProvider } from 'react-helmet-async'
 import { Layout } from './components/layout/Layout'
 import { ThemeProvider } from './components/theme-provider'
+import { ScrollToTop } from './components/ScrollToTop'
 import { Suspense, lazy } from 'react'
 import { Loader2 } from 'lucide-react'
 
@@ -12,6 +13,8 @@ const Pricing = lazy(() => import('./pages/Pricing'))
 const Booking = lazy(() => import('./pages/Booking'))
 const FAQ = lazy(() => import('./pages/FAQ'))
 const Contact = lazy(() => import('./pages/Contact'))
+const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
+const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'))
 
 // Loading component
 const PageLoader = () => (
@@ -25,6 +28,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <BrowserRouter>
+          <ScrollToTop />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Layout />}>
@@ -34,6 +38,8 @@ function App() {
                 <Route path="booking" element={<Booking />} />
                 <Route path="faq" element={<FAQ />} />
                 <Route path="contact" element={<Contact />} />
+                <Route path="mentions-legales" element={<MentionsLegales />} />
+                <Route path="politique-confidentialite" element={<PolitiqueConfidentialite />} />
               </Route>
             </Routes>
           </Suspense>
